@@ -22,7 +22,15 @@ const Heading = styled.h1`
       font-weight: 600;
     `}
 
-  color: var(--color-brand-500);
+    ${(props) =>
+    props.as === 'h4' &&
+    css`
+      font-size: 3rem;
+      font-weight: 600;
+      text-align: center;
+    `}
+
+  color: var(--color-grey-700);
 `;
 
 export default Heading;
