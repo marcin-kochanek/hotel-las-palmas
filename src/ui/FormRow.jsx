@@ -7,6 +7,7 @@ const StyledFormRow = styled.div`
   gap: 1.2rem;
 
   padding: 3rem;
+  padding-bottom: 0;
 
   ${(props) =>
     props.position === 'vertically'
@@ -17,18 +18,19 @@ const StyledFormRow = styled.div`
           grid-template-columns: 24rem 1fr 1.2fr;
         `}
 
-  &:first-child {
+  /* &:first-child {
     padding-bottom: 0;
   }
 
   &:last-child {
     padding-top: 0;
-  }
+  } */
 
   &:has(button) {
     display: flex;
     justify-content: flex-end;
     gap: 1.2rem;
+    padding: 3rem;
   }
 `;
 

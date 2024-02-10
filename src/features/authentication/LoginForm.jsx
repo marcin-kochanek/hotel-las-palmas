@@ -4,12 +4,8 @@ import Form from '../../ui/Form';
 import Input from '../../ui/Input';
 import FormRow from '../../ui/FormRow';
 import SpinnerMini from '../../ui/SpinnerMini';
-import styled from 'styled-components';
-import useLogin from './useLogin';
 
-const StyledFormRow = styled(Form)`
-  background-color: #ffffff;
-`;
+import useLogin from './useLogin';
 
 function LoginForm() {
   const [email, setEmail] = useState('marcin@test.com');
@@ -33,7 +29,7 @@ function LoginForm() {
   }
 
   return (
-    <StyledFormRow onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <FormRow position="vertically" label="Email address">
         <Input
           type="email"
@@ -57,7 +53,7 @@ function LoginForm() {
       <FormRow>
         <Button size="large">{isLoading ? <SpinnerMini /> : 'Login'}</Button>
       </FormRow>
-    </StyledFormRow>
+    </Form>
   );
 }
 
