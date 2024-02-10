@@ -20,11 +20,11 @@ const StyledFormRow = styled.div`
 
   /* &:first-child {
     padding-bottom: 0;
-  }
+  }*/
 
   &:last-child {
-    padding-top: 0;
-  } */
+    padding-bottom: 3rem;
+  }
 
   &:has(button) {
     display: flex;
