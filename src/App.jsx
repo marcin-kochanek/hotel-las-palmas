@@ -12,7 +12,6 @@ import Users from './pages/Users';
 import Settings from './pages/Settings';
 import Account from './pages/Account';
 import Login from './pages/Login';
-import PageNotfound from './pages/PageNotfound';
 import AppLayout from './ui/AppLayout';
 import ProtectedRoute from './ui/ProtectedRoute';
 import { Toaster } from 'react-hot-toast';
@@ -66,7 +65,6 @@ function App() {
               </Route>
 
               <Route path="login" element={<Login />} />
-              <Route path="*" element={<PageNotfound />} />
             </Routes>
           </BrowserRouter>
 
