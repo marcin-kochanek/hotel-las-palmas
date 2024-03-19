@@ -1,11 +1,13 @@
 import { createContext, useEffect } from 'react';
 import { useLocalStorageState } from '../hooks/useLocalStorageState';
-import { useContext } from 'react';
 
-const DarkModeContext = createContext();
+export const DarkModeContext = createContext();
 
-function DarkModeProvider({ children }) {
-  const [isDarkMode, setIsDarkMode] = useLocalStorageState(false, 'isDarkMode');
+export function DarkModeProvider({ children }) {
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches,
+    'isDarkMode'
+  );
 
   useEffect(() => {
     if (isDarkMode) {
@@ -27,14 +29,3 @@ function DarkModeProvider({ children }) {
     </DarkModeContext.Provider>
   );
 }
-
-function useDarkMode() {
-  const context = useContext(DarkModeContext);
-
-  if (context === undefined)
-    throw new Error('DarkModeContenxt was used outside of DarkModeProvider');
-
-  return context;
-}
-
-export { DarkModeProvider, useDarkMode };

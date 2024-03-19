@@ -83,7 +83,9 @@ function Menus({ children }) {
 function Toggle({ id }) {
   const { openId, close, open, setPosition } = useContext(MenusCtx);
 
-  const handleToggle = (e) => {
+  function handleToggle(e) {
+    e.stopPropagation();
+
     const rect = e.target.closest('button').getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
@@ -91,7 +93,7 @@ function Toggle({ id }) {
     });
 
     return openId === '' || openId !== id ? open(id) : close();
-  };
+  }
 
   return (
     <StyledToggle onClick={handleToggle}>
@@ -102,9 +104,9 @@ function Toggle({ id }) {
 
 function List({ children, id }) {
   const { openId, position } = useContext(MenusCtx);
-  const refElement = useOutsideClick(close);
+  const refElement = useOutsideClick(close, false);
 
-  if (openId !== id) return;
+  if (openId !== id) return null;
 
   return createPortal(
     <StyledList position={position} ref={refElement}>
